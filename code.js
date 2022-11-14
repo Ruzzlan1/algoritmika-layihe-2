@@ -3,18 +3,21 @@ class Message {
         this.author = author;
         this.text = text;
         this.createdAt = createdAt;
-        this.allMessages = [];
+    }
+    toString() {
+        return str = this.name + this.text + this.date;
     }
 }
 
 class Messenger extends Message {
     constructor(author, text, createdAt, allMessages) {
+        this.allMessages = [];
         super(author, text, createdAt);
     }
     show_history() {
         let now = this.date;
         this.allMessages.forEach((item) => {
-            console.log(`${item.date.getHours()}:${item.date.getMinutes()}:${item.name}:${item.texter}}`)
+            console.log(`${item.date.getHours()}:${item.date.getMinutes()}:${item.name}:${item.texter}`);
         })
     }
     send(author, text) {
