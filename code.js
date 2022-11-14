@@ -1,17 +1,31 @@
-class Messenger{
-    constructor(author,text){
-    }
-    showHistory(){
-        let now = new Date();
-        return `${now.getHours()}:${now.getMinutes()}`
-    }
-    send(author,text){
-        console.log(`${this.showHistory()} ${this.author=author} : ${this.text=text}`)
+class Message {
+    constructor(author, text, createdAt, allMessages) {
+        this.author = author;
+        this.text = text;
+        this.createdAt = createdAt;
+        this.allMessages = [];
     }
 }
-let messenger = new Messenger()
-messenger.send('Ruslan', 'first message')
-messenger.send('Ramina', 'second message')
-messenger.showHistory()
+
+class Messenger extends Message {
+    constructor(author, text, createdAt, allMessages) {
+        super(author, text, createdAt);
+    }
+    show_history() {
+        let now = this.date;
+        this.allMessages.forEach((item) => {
+            console.log(`${item.date.getHours()}:${item.date.getMinutes()}:${item.name}:${item.texter}}`)
+        })
+    }
+    send(author, text) {
+        this.allMessages.push({ name: author, texter: text, date: new Date() })
+    }
+}
+
+
+let messenger = new Messenger();
+messenger.send('Ruslan', 'first message');
+messenger.send('Ramina', 'second message');
+messenger.show_history();
 
 
